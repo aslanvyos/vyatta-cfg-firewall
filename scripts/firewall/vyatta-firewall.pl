@@ -565,7 +565,7 @@ sub update_rules {
 
     if ($all_rules_deleted and Vyatta::IpTables::Mgr::chain_referenced($table, $name, $iptables_cmd)) {
         # Disallow deleting a chain if it's still referenced
-        Vyatta::Config::outputError([$tree,$name],"Firewall configuration error: Cannot delete rule set \"$name\" (still in use)\n");
+        Vyatta::Config::outputError([$tree,$name],"Firewall configuration error: The firewall rule set \"$name\" can not be empty while it is still in use\n");
         exit 1;
     }
 
